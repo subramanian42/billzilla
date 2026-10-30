@@ -6,50 +6,54 @@ class BackdropGradiant extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Material(
-      child: Stack(
-        children: [
-          Positioned(
-            width: -50,
-            height: -50,
-            child: Blur(
-              // alignment: Alignment(-0.7, -0.35),
-              color: Color(0XFF948DE6),
+      child: SizedBox(
+        child: Stack(
+          children: [
+            Positioned(
+              height: MediaQuery.sizeOf(context).height,
+              width: MediaQuery.sizeOf(context).width,
+
+              child: Blur(
+                alignment: Alignment(-0.7, -0.35),
+                color: Color(0XFF948DE6),
+              ),
             ),
-          ),
-          // Positioned(
-          //   child: Blur(
-          //     alignment: Alignment(-0.5, -0.5),
-          //     color: Color(0XFFA9E78D),
-          //   ),
-          // ),
-          // Blur(alignment: Alignment(-0.7, -0.35), color: Color(0XFF948DE6)),
-        ],
+            Positioned(
+              width: MediaQuery.sizeOf(context).width,
+              height: MediaQuery.sizeOf(context).height,
+              child: Blur(
+                alignment: Alignment(0.75, -0.35),
+                color: Color(0XFFA5E8EA),
+              ),
+            ),
+            Positioned(
+              height: MediaQuery.sizeOf(context).height,
+              width: MediaQuery.sizeOf(context).width,
+              child: Blur(
+                alignment: Alignment(-0.025, -0.025),
+                color: Color(0XFFA9E78D),
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
 }
 
 class Blur extends StatelessWidget {
-  const Blur({
-    super.key,
-    //  required this.alignment,
-    required this.color,
-  });
-  // final Alignment alignment;
+  const Blur({super.key, required this.alignment, required this.color});
+  final Alignment alignment;
   final Color color;
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      width: 642,
-      height: 642,
-      child: DecoratedBox(
-        decoration: BoxDecoration(
-          gradient: RadialGradient(
-            // center: alignment,
-            radius: 0.75,
-            colors: <Color>[color, color.withValues(alpha: 0.0)],
-            stops: <double>[0.0, 1],
-          ),
+    return DecoratedBox(
+      decoration: BoxDecoration(
+        gradient: RadialGradient(
+          center: alignment,
+          radius: 0.75,
+          colors: <Color>[color, color.withValues(alpha: 0.0)],
+          stops: <double>[0.0, 1],
         ),
       ),
     );
