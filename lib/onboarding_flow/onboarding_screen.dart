@@ -17,20 +17,18 @@ class OnboardingScreen extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
                 Spacer(),
+                Image.asset("assets/images/on_boarding_icon.png", height: 300),
                 Padding(
-                  padding: EdgeInsetsGeometry.only(bottom: 200),
-                  child: Image.asset(
-                    "assets/images/on_boarding_icon.png",
-                    height: 300,
-                  ),
-                ),
-                Padding(
-                  padding: EdgeInsetsGeometry.only(left: 200, bottom: 116),
+                  padding: EdgeInsetsGeometry.only(left: 200, top: 116),
                   child: Text("BillZilla"),
                 ),
 
                 Padding(
-                  padding: EdgeInsetsGeometry.only(left: 200, bottom: 108),
+                  padding: EdgeInsetsGeometry.only(
+                    left: 150,
+                    top: 8,
+                    bottom: 36,
+                  ),
                   child: Text("Managing your finances"),
                 ),
 
